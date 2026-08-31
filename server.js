@@ -4,6 +4,27 @@ app.use(express.json());
 const port = 3000;
 
 let parcels=[]
+
+
+app.get("/api/parsel",(req,res)=>{
+  res.json(parcels);
+})
+app.get("/api/parsel/:id", (req, res) => {
+  const id = Number(req.params.id);
+
+  const courier = parcels.find(
+    (item) => item.id === id
+  );
+
+  if (!courier) {
+    return res.status(404).json({
+      message: "Parcel not found"
+    });
+  }
+
+  res.json(courier);
+});
+
  app.post("/api/parsel",(req,res)=>{
 
    const { senderName, receiverName, pickupAddress, deliveryAddress } = req.body;
