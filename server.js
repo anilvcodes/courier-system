@@ -17,7 +17,7 @@ app.get("/api/parsel/:id", (req, res) => {
   );
 
   if (!courier) {
-    return res.status(404).json({
+    return res.json({
       message: "Parcel not found"
     });
   }
