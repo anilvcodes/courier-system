@@ -6,24 +6,24 @@ const port = 3000;
 let parcels=[]
 
 
-app.get("/api/parsel",(req,res)=>{
-  res.json(parcels);
-})
-app.get("/api/parsel/:id", (req, res) => {
-  const id = Number(req.params.id);
+// app.get("/api/parsel",(req,res)=>{
+//   res.json(parcels);
+// })
+// app.get("/api/parsel/:id", (req, res) => {
+//   const id = Number(req.params.id);
 
-  const courier = parcels.find(
-    (item) => item.id === id
-  );
+//   const courier = parcels.find(
+//     (item) => item.id === id
+//   );
 
-  if (!courier) {
-    return res.json({
-      message: "Parcel not found"
-    });
-  }
+//   if (!courier) {
+//     return res.json({
+//       message: "Parcel not found"
+//     });
+//   }
 
-  res.json(courier);
-});
+//   res.json(courier);
+// });
 
  app.post("/api/parsel",(req,res)=>{
 
